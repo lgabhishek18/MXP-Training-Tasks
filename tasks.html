@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+    <head>
+        <title>MXP TASKS</title>
+        <div>
+            <h2>Abhishek Gupta</h2>
+        </div>
+    </head>
+    <body>
+        <script>
+
+            document.write("Task-1");
+            document.write("<br />");
+            document.write("<br />");
+            for(var i=1; i<=5; i++) {
+                for(var j=i; j<=5; j++) {
+                    document.write(" * ");
+                }
+                document.write("<br />");
+            }
+            for(var i=2; i<=5; i++) {
+                for(var j=1; j<=i; j++) {
+                    document.write(" * ");
+                }
+                document.write("<br />");
+            }
+
+
+            document.write("<br />");
+            document.write("Task-2");
+            document.write("<br />");
+            document.write("<br />");
+            var oddarr = []
+            for(var i=1; i<=20; i++) {
+                if(i%2!=0)
+                    oddarr.push(i);
+            }
+            document.write(oddarr);
+
+
+            document.write("<br />");
+            document.write("<br />");
+            document.write("Task-3");
+            document.write("<br />");
+            document.write("<br />");
+            function bankingApp() {
+                this.balance = 0;
+                this.openAccount = function(currbalance){
+                    if(currbalance>0) {
+                        this.balance = currbalance;
+                        document.write("Account opened, Your balance = "+currbalance);
+                    }else {
+                        document.write("Please open your account.");
+                    }
+                };
+
+                this.deposit = function(amount) {
+                    if(amount>0){
+                        this.balance = this.balance+amount;
+                        document.write("Deposit Amount = "+amount);
+                        document.write("<br />");
+                        document.write("After Deposit, Your balance = "+this.balance);
+                    }else{
+                        document.write("Please, enter your amount.");
+                    }
+                };
+
+                this.withdraw = function(amount){
+                    if(amount<=this.balance){
+                        this.balance = this.balance - amount;
+                        document.write("Withdram Amount = "+amount);
+                        document.write("<br />");
+                        document.write("After withdram, Your balance = "+this.balance);
+                    }else{
+                        document.write("Insufficient Balance.");
+                    }
+                };
+            }
+            var myacc = new bankingApp()
+            myacc.openAccount(45000);
+            document.write("<br />");
+            myacc.deposit(1000);
+            document.write("<br />");
+            myacc.withdraw(6000);
+            document.write("<br />");
+
+
+
+            document.write("<br />");
+            document.write("Task-4");
+            document.write("<br />");
+            document.write("<br />");
+            function taskupdate() {
+                this.taskarr = [" Dancing ", " Singing ", " Playing ", " Siting ", " Jumping "];
+                document.write(this.taskarr);
+
+                this.delete = function(index){
+                    document.write("<br />");
+                    this.taskarr.splice(index, 2, " Talking ");
+                    document.write("After Update-");
+                    document.write("<br />");
+                    document.write(this.taskarr);
+                };
+            }
+            var task = new taskupdate()
+            task.delete(2);
+        </script>
+    </body>
+</html>
