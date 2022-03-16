@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Bank App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        h5 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+            text-align: center;}
+        .form-control{
+            text-align: center;
+            width: 300px;
+            margin: auto;
+            display: block;
+        }
+        .container{
+            text-align: center;
+            background-color: lightslategray;
+        }
+        .mb{
+            margin: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <script>
+
+        function balance() {
+            var balance = document.getElementById("inputamt").value;
+            return balance;
+        }
+
+        function createAccount() {
+            var myamt = document.getElementById("inputamt").value;
+            var initialBal = myamt;
+
+            if(myamt == '') {
+                alert("Please enter amount!!");
+            } else if(myamt < 5000) {
+                alert("Minimum amount should be Rs.5000, Try Again.");
+            } else {
+                alert("Success, Account created with balance Rs."+initialBal);
+            }
+        }
+
+        function deposit() {
+            var currbalance_x = balance();
+            var depositAmt = document.getElementById("depositamt").value;
+            if(depositAmt <=0 ) {
+                alert("Please, Enter some amount to be deposit!!")
+            } else {
+                currbalance_x = currbalance_x + depositAmt;
+                alert("Success, amount deposit is Rs."+depositAmt);
+            }
+        }
+
+        function withdraw() {
+            var currbalance_w = balance();
+            var withdrawAmt = document.getElementById("withdrawamt").value;
+            if(withdrawAmt <= 0) {
+                alert("Please, enter amount to be withdraw!!");
+            } else if(withdrawAmt > currbalance_w) {
+                alert("Insufficient balance, try again!!");
+            } else {
+                currbalance_w = currbalance_w - withdrawAmt;
+                alert("Success, amount withdrawn");
+            }
+        }
+
+    </script>
+
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">ABC Bank</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Transactions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    
+    <form>
+    <div class="container">
+        <h1>Welcome to ABC Bank</h1><br>
+
+        <div class="mb">
+        <h4>Enter Amount</h4>
+        <p><input type="number" class="form-control" id="inputamt" aria-describedby="amount" placeholder="Enter amount"></p><br>
+        <p><input type="number" class="form-control" id="depositamt" aria-describedby="amount" placeholder="Enter deposit amount"></p><br>
+        <p><input type="number" class="form-control" id="withdrawamt" aria-describedby="amount" placeholder="Enter withdraw amount"></p><br>
+        </div>
+        <button onclick="createAccount(); balance();" class="btn btn-primary" >Open Account</button>&nbsp;&nbsp;
+        <button onclick="deposit(); balance();" class="btn btn-primary" >Deposit</button>&nbsp;&nbsp;
+        <button onclick="withdraw(); balance();" class="btn btn-primary">Withdraw</button>
+        
+        <br><br><br><br><br><h5>Thanks for visiting us, come again soon.</h5>            
+    </div>
+    </form>
+
+</body>
+</html
