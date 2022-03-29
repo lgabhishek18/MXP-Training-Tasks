@@ -1,0 +1,95 @@
+<div class="m-5">
+  <form class="form_class" #simpleForm="ngForm" (ngSubmit)="getValues(simpleForm.value)">
+    <div class="row mb-4">
+      <label class="col-2 form-label">Name:</label>
+      <div class="col-5">
+        <input type="text" [(ngModel)]="user.name" #name="ngModel" required minlength="5" pattern="^[a-zA-Z_ ]+$"
+          class="form-control" name="inputname" id="inputname" placeholder="Enter Name">
+      </div>
+      <div *ngIf="name.invalid && (name.untouched || name.dirty )">
+        <div *ngIf="name.errors?.['required']">
+          <strong>Name Field is required </strong>
+        </div>
+        <div *ngIf="name.errors?.['minlength']">
+          <strong>Name should have at least 5 character </strong>
+        </div>
+        <div *ngIf="name.errors?.['pattern']">
+          <strong>Name can have alphabets only </strong>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <label class="col-2 form-label">Email Address:</label>
+      <div class="col-5">
+        <input type="email" [(ngModel)]="user.email" #email="ngModel" required minlength="5"
+          pattern="^([a-zA-z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z]{2,4})+$" class="form-control" name="emaila"
+          id="emailadd" aria-describedby="emailHelp" placeholder="Enter Email">
+      </div>
+      <div *ngIf="email.invalid && (email.untouched || email.dirty )">
+        <div *ngIf="email.errors?.['required']">
+          <strong>Email Field is required </strong>
+        </div>
+        <div *ngIf="name.errors?.['minlength']">
+          <strong>Email should have at least 5 character </strong>
+        </div>
+        <div *ngIf="email.errors?.['pattern']">
+          <strong>Email pattern not matched </strong>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <label class="col-2 form-label">Mobile Number:</label>
+      <div class="col-5">
+        <input type="text" [(ngModel)]="user.phone" #phone="ngModel" required minlength="10" pattern="^[0-9]+$" class="form-control" name="phone" id="phone" placeholder="Enter Mobile Number" />
+      </div>
+      <div *ngIf="phone.invalid && (phone.untouched || phone.dirty )">
+        <div *ngIf="phone.errors?.['required']">
+          <strong>Number Field is required </strong>
+        </div>
+        <div *ngIf="phone.errors?.['minlength']">
+          <strong>Number should have at least 10 character </strong>
+        </div>
+        <div *ngIf="phone.errors?.['pattern']">
+          <strong>Number can have numeric only </strong>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row mb-4">
+      <label class="col-2 form-label">City:</label>
+      <div class="col-5">
+        <input type="text" [(ngModel)]="user.city" #city="ngModel" required minlength="5" pattern="^[a-zA-Z_ ]+$"
+          class="form-control" name="city" id="city" placeholder="Enter City">
+      </div>
+      <div *ngIf="city.invalid && (city.untouched || city.dirty )">
+        <div *ngIf="city.errors?.['required']">
+          <strong>City Field is required </strong>
+        </div>
+        <div *ngIf="city.errors?.['pattern']">
+          <strong>City pattern not valid!</strong>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <label class="col-2 form-label">Pincode:</label>
+      <div class="col-5">
+        <input type="text" [(ngModel)]="user.pincode" #pincode="ngModel" required minlength="6" pattern="^[0-9]+$"
+          class="form-control" name="inputpincode" id="inputpincode" placeholder="Enter Pin code">
+      </div>
+      <div *ngIf="pincode.invalid && (pincode.untouched || pincode.dirty )">
+        <div *ngIf="pincode.errors?.['required']">
+          <strong>Pin Code is required!</strong>
+        </div>
+        <div *ngIf="pincode.errors?.['minlength']">
+          <strong>Minimum 6 characters required!</strong>
+        </div>
+        <div *ngIf="pincode.errors?.['pattern']">
+          <strong>Only numbers allowed!</strong>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" onclick="validate()">Submit</button>
+  </form>
+</div>

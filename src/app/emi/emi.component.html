@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emi Calculator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"
+    integrity="sha512-FJ2OYvUIXUqCcPf1stu+oTBlhn54W0UisZB/TNrZaVMHHhYvLBV9jMbvJYtvDe5x/WVaoXZ6KB+Uqe5hT2vlyA=="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="emi.component.css" type="text/css">
+</head>
+
+<body>
+  <div class="container" style="display: flex;margin-top: 2%;">
+
+    <div class="col-sm-6 col-12 card">
+      <H1>EMI Calculator</H1>
+      <form name="loan-form">
+        <div class='loanBlock'>
+          <h3> Amount</h3>
+          <input type=number class="form-control" name="principal" [(ngModel)]="p" style="border-radius:5px"><br>
+        </div>
+        <div class='aprBlock'>
+          <h3>Interest Rate</h3>
+          <input type="number" class="form-control" name="rate" [(ngModel)]="r"  style="border-radius:5px"><br>
+        </div>
+        <div class='tenureBlock'>
+          <h3>Time Periods(yrs)</h3>
+          <input type=number class="form-control" name="time" [(ngModel)]="t" style="border-radius:5px"><br>
+          <br>
+        </div>
+        <div class="d-flex">
+          <button style="border-radius:2px" (click)="emicalc()" class="btn"> Total</button> 
+        </div>
+      </form>
+      <h4>Total Amount to be paid:Rs.<label id="totamt">{{totamt}}</label></h4>
+        <h4>Total Interest:Rs.<label id="totint">{{totint}}</label></h4>
+
+
+
+    </div>
+    
+
+  </div>
